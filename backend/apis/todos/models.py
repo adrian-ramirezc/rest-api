@@ -1,8 +1,8 @@
 from flask_restx import Namespace, fields
 
 
-def todo_model(api: Namespace):
-    return api.model(
+def todo_model(_api: Namespace):
+    return _api.model(
         "Todo Model",
         {
             "todo_id": fields.Integer,
@@ -11,10 +11,10 @@ def todo_model(api: Namespace):
     )
 
 
-def todos_model(api: Namespace):
-    return api.model(
+def todos_model(_api: Namespace):
+    return _api.model(
         "Todos Model",
         {
-            "elements": fields.List(fields.Nested(todo_model(api))),
+            "elements": fields.List(fields.Nested(todo_model(_api))),
         },
     )
